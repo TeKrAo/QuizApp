@@ -18,12 +18,28 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Development\C#\QuizApp-main\QuizApp
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Development/C\#/QuizApp-main/QuizApp/Views/Game/Quiz.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxRdWl6LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Development/C\#/QuizApp-main/QuizApp/Views/Game/Result.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxSZXN1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Development/C\#/QuizApp-main/QuizApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Development/C\#/QuizApp-main/QuizApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Development/C\#/QuizApp-main/QuizApp/Views/Players/AddPlayer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xBZGRQbGF5ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Development/C\#/QuizApp-main/QuizApp/Views/Players/PlayersList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xQbGF5ZXJzTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Development/C\#/QuizApp-main/QuizApp/Views/Questions/AddQuestion.cshtml]

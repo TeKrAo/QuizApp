@@ -2,9 +2,8 @@
 {
     public class Player
     {
-        public Player(string name)
+        public Player()
         {
-            Name = name;
             HighestScore = 0;
             Wins = 0;
             Rounds = new List<Round>();

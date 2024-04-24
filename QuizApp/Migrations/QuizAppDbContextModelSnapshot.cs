@@ -33,7 +33,7 @@ namespace QuizApp.Migrations
                     b.Property<string>("AnswerText")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("IsCorrect")
+                    b.Property<bool>("IsCorrect")
                         .HasColumnType("bit");
 
                     b.Property<int>("QuestionId")
@@ -57,7 +57,7 @@ namespace QuizApp.Migrations
                     b.Property<int>("AnswerId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsCorrect")
+                    b.Property<bool?>("IsCorrect")
                         .HasColumnType("bit");
 
                     b.Property<int>("RoundId")
@@ -69,7 +69,7 @@ namespace QuizApp.Migrations
 
                     b.HasIndex("RoundId");
 
-                    b.ToTable("Atteempts");
+                    b.ToTable("Attempts");
                 });
 
             modelBuilder.Entity("QuizApp.Models.Player", b =>
@@ -113,19 +113,19 @@ namespace QuizApp.Migrations
 
             modelBuilder.Entity("QuizApp.Models.Round", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IsWon")
+                        .HasColumnType("bit");
 
                     b.Property<int>("PlayerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("PlayerId");
 

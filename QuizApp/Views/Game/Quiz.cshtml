@@ -1,0 +1,33 @@
+﻿﻿@{
+    ViewData["Title"] = "Quiz Page";
+}
+@model List<Question>
+
+<div class="container">
+    <div class="col-md-10 mx-auto">
+        <div class="quiz-container mt-5 mb-5">
+            <form asp-controller="Game" asp-action="SubmitQuiz" method="post">
+                <p>ქვიზის წარმატებით დასრულებისთვის აუცილებელია სწორი პასუხი გაეცეს 70% ან მეტს :)</p>
+                <div class="form-group mt-3">
+                    <label for="playerName"><h4>შეიყვანეთ თქვენი სახელი: </h4></label>
+                    <input type="text" id="playerName" name="PlayerName" class="form-control mb-3" />
+                </div>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <hr style="border: none;height: 8px;background-color: #007bff;background-image: linear-gradient(90deg, transparent 50%, rgba(255,255 ,255,.5) 50%);" />
+                    <div class="form-group">
+                        <h4>@(i + 1). @Model[i].QuestionText</h4>
+                    </div>
+                    @for (var j = 0; j < Model[i].Answers.Count; j++)
+                    {
+                        <div class="form-check">
+                            <input type="radio" name="SelectedAnswerIds[@i]" class="form-check-input" value="@Model[i].Answers[j].Id" />
+                            <label class="form-control mb-3">@Model[i].Answers[j].AnswerText</label>
+                        </div>
+                    }
+                }
+                <button type="submit" class="btn btn-success">ქვიზის დასრულება</button>
+            </form>
+        </div>
+    </div>
+</div>

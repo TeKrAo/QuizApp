@@ -2,18 +2,19 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Questions List";
+    ViewData["Title"] = "Players List";
 }
-@model List<Question>
+@model List<Player>
 <div class="container">
     <div class="col-md-15">
-        <h2 class="mb-4">Questions</h2>
+        <h2 class="mb-4">Players</h2>
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
                     <th></th>
-                    <th>Question</th>
-                    <th>Answers</th>
+                    <th>Player Name</th>
+                    <th>Wins</th>
+                    <th>Highest Score</th>
                     <th></th>
                 </tr>
             </thead>
@@ -22,16 +23,12 @@
                 {
                     <tr>
                         <td>@(i + 1)</td>
-                        <td style="width: 50%;">@Model[i].QuestionText</td>
-                        <td style="width: 50%;">
-                            @foreach (var answer in Model[i].Answers)
-                            {
-                                <p>@answer.IsCorrect - @answer.AnswerText</p>
-                            }
-                        </td>
+                        <td style="width: 50%;">@Model[i].Name</td>
+                        <td>@Model[i].Wins</td>
+                        <td>@Model[i].HighestScore</td>
                         <td>
-                            <form asp-controller="Questions" asp-action="DeleteQuestion" method="post">
-                                <input type="hidden" name="id" value="@Model[i].Id" />
+                            <form asp-controller="Players" asp-action="DeletePlayer" method="post">
+                                <input type="hidden" name="id" value="@Model[i].ID" />
                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                             </form>
                         </td>

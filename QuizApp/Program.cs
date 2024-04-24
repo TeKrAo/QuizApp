@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using QuizApp.Context;
 using QuizApp.Repositories;
+using QuizApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IQuestionsRepository, QuestionsRepository>();
 builder.Services.AddScoped<IPlayersRepository, PlayersRepository>();
+builder.Services.AddScoped<IGameService, GameService>();
 
 // Register DbContext
 var connectionString = builder.Configuration.GetConnectionString("QuizAppDB");

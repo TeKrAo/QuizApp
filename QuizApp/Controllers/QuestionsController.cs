@@ -17,7 +17,6 @@ namespace QuizApp.Controllers
             var questions = _questionRepository.GetAllQuestions();
             return View("QuestionsList", questions);
         }
-
         [HttpGet]
         public IActionResult AddQuestion()
         {
