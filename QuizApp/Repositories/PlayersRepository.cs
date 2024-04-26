@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using QuizApp.Context;
 using QuizApp.Models;
 using System.Numerics;
+using System;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace QuizApp.Repositories
 {
@@ -26,6 +29,12 @@ namespace QuizApp.Repositories
         }
         public Player AddPlayer(Player player)
         {
+            if (String.IsNullOrEmpty(player.Name))
+                throw new ArgumentNullException("Player can't be empty");
+            if (GetPlayerByName(player.Name) != null)
+                throw new Exception("ALREADY EXISTS");
+                
+                
             _context.Players.Add(player);
             _context.SaveChanges();
             return player;

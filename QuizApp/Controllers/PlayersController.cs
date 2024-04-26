@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuizApp.Models;
 using QuizApp.Repositories;
+using System.Diagnostics;
 
 namespace QuizApp.Controllers
 {
@@ -25,7 +26,28 @@ namespace QuizApp.Controllers
         [HttpPost]
         public IActionResult AddPlayer(Player player)
         {
-            _playersRepository.AddPlayer(player);
+            try
+            {
+                _playersRepository.AddPlayer(player);
+            }
+            catch (ArgumentNullException ex)
+            {
+                var errorViewModel = new ErrorViewModel
+                {
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+                    Comment = ex.Message
+                };
+                return View("Error", errorViewModel);
+            }
+            catch (Exception ex)
+            {
+                var errorViewModel = new ErrorViewModel
+                {
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+                    Comment = ex.Message
+                };
+                return View("Error", errorViewModel);
+            }
             return RedirectToAction("AddPlayer");
         }
 

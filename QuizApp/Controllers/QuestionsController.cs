@@ -24,8 +24,9 @@ namespace QuizApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddQuestion(Question question)
+        public IActionResult AddQuestion(Question question,int correctAnswerIndex)
         {
+            question.Answers[correctAnswerIndex].IsCorrect = true;
             _questionRepository.AddQuestion(question);
             return RedirectToAction("AddQuestion");
         }
